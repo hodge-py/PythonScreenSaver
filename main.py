@@ -11,10 +11,10 @@ class PyGraphicsGen:
         pass
 
 
-    def array2dLand(self,data,background=(0,0,0),screenshot=True,mode='rgba',anti=True,showfig=True):
-        fig = mlab.figure(1,bgcolor=background)
+    def array2dLand(self,data,background=(0,0,0),screenshot=True,mode='rgba',anti=True,showfig=True,imgSize=(1920,1080),colorMaps='gist_earth'):
+        fig = mlab.figure(1,bgcolor=background,size=imgSize)
         norm = data
-        imshow(norm,colormap='gist_earth')
+        imshow(norm,colormap=colorMaps)
 
         if screenshot == True and mode == 'rgba':
             screen = mlab.screenshot(figure=fig,mode=mode,antialiased=anti)
@@ -28,10 +28,10 @@ class PyGraphicsGen:
             mlab.show()
 
 
-    def surf2dArray(self,data,background=(0,0,0),screenshot=True,mode='rgba',anti=True,showfig=True):
-        fig = mlab.figure(1, bgcolor=background)
+    def surf2dArray(self,data,background=(0,0,0),screenshot=True,mode='rgba',anti=True,showfig=True,imgSize=(1920,1080),colorMaps='gist_earth'):
+        fig = mlab.figure(1, bgcolor=background,size=imgSize)
         norm = data
-        surf(norm, colormap='gist_earth')
+        surf(norm, colormap=colorMaps)
 
         if screenshot == True and mode == 'rgba':
             screen = mlab.screenshot(figure=fig,mode=mode,antialiased=anti)
