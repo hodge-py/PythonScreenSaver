@@ -1,6 +1,8 @@
 import numpy as np
 from mayavi.mlab import *
 from mayavi import mlab
+from PIL import Image
+import random
 
 class PyGraphicsGen:
 
@@ -8,16 +10,28 @@ class PyGraphicsGen:
         pass
 
 
-    def TwoDArrIm(self,background=(.155,.25,.125)):
-        mlab.figure(1,bgcolor=(background))
-        norm = np.random.normal(size=(20,20))
+    def Array2dLand(self,size=(20,20),background=(0,0,0),screenshot=True,mode='rgba'):
+        fig = mlab.figure(1,bgcolor=(background))
+        norm = np.random.normal(size=(20,10))
         imshow(norm,colormap='gist_earth')
 
-        mlab.savefig(filename='test.png')
+        if screenshot == True and mode == 'rgba':
+            screen = mlab.screenshot(figure=fig,mode=mode)
+            screen = Image.fromarray(np.uint8(screen * 255))
+            screen.save(f"test{random.randint(0,10000)}.png")
+        elif screenshot == True and mode == 'rgb':
+            screen = mlab.screenshot(figure=fig, mode=mode)
+            screen = Image.fromarray(np.uint8(screen))
+            screen.save(f"test{random.randint(0, 10000)}.png")
 
         mlab.show()
 
 
 host = PyGraphicsGen()
 
-host.TwoDArrIm()
+test = host.Array2dLand()
+
+
+
+
+
