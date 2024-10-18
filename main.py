@@ -10,21 +10,21 @@ class PyGraphicsGen:
         pass
 
 
-    def Array2dLand(self,size=(20,20),background=(0,0,0),screenshot=True,mode='rgba'):
-        fig = mlab.figure(1,bgcolor=(background))
-        norm = np.random.normal(size=(20,10))
+    def Array2dLand(self,size=(20,20),background=(0,0,0),screenshot=True,mode='rgb',anti=True,showfig=True):
+        fig = mlab.figure(1,bgcolor=background)
+        norm = np.random.normal(size=size)
         imshow(norm,colormap='gist_earth')
 
         if screenshot == True and mode == 'rgba':
-            screen = mlab.screenshot(figure=fig,mode=mode)
+            screen = mlab.screenshot(figure=fig,mode=mode,antialiased=anti)
             screen = Image.fromarray(np.uint8(screen * 255))
             screen.save(f"test{random.randint(0,10000)}.png")
         elif screenshot == True and mode == 'rgb':
-            screen = mlab.screenshot(figure=fig, mode=mode)
+            screen = mlab.screenshot(figure=fig, mode=mode,antialiased=anti)
             screen = Image.fromarray(np.uint8(screen))
             screen.save(f"test{random.randint(0, 10000)}.png")
-
-        mlab.show()
+        if showfig:
+            mlab.show()
 
 
 host = PyGraphicsGen()
