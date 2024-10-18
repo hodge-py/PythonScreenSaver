@@ -34,10 +34,13 @@ class PyGraphicsGen:
         :param colorMaps: color scheme of figure
         :return:
         """
-        mlab.move(self.forward, self.right, self.up)
+
         fig = mlab.figure(1,bgcolor=background,size=imgSize)
         norm = data
         imshow(norm,colormap=colorMaps)
+        mlab.move(self.forward, self.right, self.up)
+        mlab.pitch(self.pitch)
+        mlab.roll(self.roll)
 
         if screenshot == True and mode == 'rgba':
             screen = mlab.screenshot(figure=fig,mode=mode,antialiased=anti)
@@ -66,6 +69,9 @@ class PyGraphicsGen:
         fig = mlab.figure(1, bgcolor=background,size=imgSize)
         norm = data
         surf(norm, colormap=colorMaps)
+        mlab.move(self.forward, self.right, self.up)
+        mlab.pitch(self.pitch)
+        mlab.roll(self.roll)
 
         if screenshot == True and mode == 'rgba':
             screen = mlab.screenshot(figure=fig,mode=mode,antialiased=anti)
@@ -107,3 +113,18 @@ class PyGraphicsGen:
         self.right = right
         self.up = up
 
+
+    def getMoveCamera(self):
+        return [self.forward, self.right, self.up]
+
+    def setPitchCamera(self,pitch):
+        self.pitch = pitch
+
+    def getPitchCamera(self):
+        return self.pitch
+
+    def setRollCamera(self,roll):
+        self.roll = roll
+
+    def getRollCamera(self):
+        return self.roll
