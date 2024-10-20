@@ -14,7 +14,7 @@ class PyGraphicsGen:
     PyGraphicsGen is the main class to generate wallpapers, animations, etc.
     """
 
-    def __init__(self,forward = -.5, right = -.5, up = 0, pitch = 0, roll = 0):
+    def __init__(self,forward = 0, right = 0, up = 0, pitch = 0, roll = 0):
         self.forward = forward
         self.right = right
         self.up = up
