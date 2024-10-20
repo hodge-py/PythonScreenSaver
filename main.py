@@ -3,7 +3,7 @@ from mayavi.mlab import *
 from mayavi import mlab
 from PIL import Image
 import random
-import PyQt5
+import PySide6
 
 """
 Main Code
@@ -103,7 +103,7 @@ class PyGraphicsGen:
 
     def setMoveCamera(self,forward,right,up):
         """
-        Moves the camera to the given coordinates
+        sets the camera to the given coordinates
         :param forward:
         :param right:
         :param up:
@@ -115,16 +115,38 @@ class PyGraphicsGen:
 
 
     def getMoveCamera(self):
+        """
+        Get the camera coordinates
+        :return:
+        """
         return [self.forward, self.right, self.up]
 
     def setPitchCamera(self,pitch):
+        """
+        sets the pitch of the camera
+        :param pitch:
+        :return:
+        """
         self.pitch = pitch
 
     def getPitchCamera(self):
+        """
+        Get the pitch of the camera
+        :return:
+        """
         return self.pitch
 
     def setRollCamera(self,roll):
+        """
+        sets the roll of the camera
+        :param roll:
+        :return:
+        """
         self.roll = roll
 
     def getRollCamera(self):
+        """
+        Get the roll of the camera
+        :return:
+        """
         return self.roll
