@@ -3,6 +3,9 @@ from PySide6 import QtCore, QtGui, QtWidgets
 from PySide6.QtUiTools import QUiLoader
 from main import PyGraphicsGen
 import numpy as np
+from mayavi.mlab import *
+from mayavi import mlab
+from PIL import Image
 
 pyGraphics = PyGraphicsGen()
 
