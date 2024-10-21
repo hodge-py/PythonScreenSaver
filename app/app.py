@@ -6,13 +6,13 @@ import numpy as np
 
 pyGraphics = PyGraphicsGen()
 
-def arr2D(x1,y1):
+def arr2D(x1,y1,mode):
     norms = np.random.normal(size=(x1, y1))
-    pyGraphics.array2dLand(norms)
+    pyGraphics.array2dLand(norms,mode=mode)
 
-def arrSurf(x1,y1):
+def arrSurf(x1,y1,mode):
     norms = np.random.normal(size=(x1, y1))
-    pyGraphics.surf2dArray(norms)
+    pyGraphics.surf2dArray(norms,mode=mode)
 
 def camera(forward,right,up,pitch,roll):
     pyGraphics.setMoveCamera(forward,right,up)
@@ -27,12 +27,13 @@ def checked():
     up = window.up.value()
     pitch = window.pitch.value()
     roll = window.roll.value()
+    modeText = window.mode.currentText().lower()
     camera(forward,right,up,pitch,roll)
     text = str(window.graphictype.currentText())
     if text == "2D Land":
-        arr2D(x1,y1)
+        arr2D(x1,y1,modeText)
     elif text == "2D Surf":
-        arrSurf(x1,y1)
+        arrSurf(x1,y1,modeText)
 
 app = 0
 

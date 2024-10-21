@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>PyGraphicsGen</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="maximumSize">
@@ -21,12 +21,15 @@
     </size>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="4" column="0">
+    <item row="5" column="0">
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="2" column="2">
          <widget class="QDoubleSpinBox" name="up">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
           <property name="singleStep">
            <double>0.500000000000000</double>
           </property>
@@ -44,6 +47,9 @@
         </item>
         <item row="2" column="1">
          <widget class="QDoubleSpinBox" name="right">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
           <property name="singleStep">
            <double>0.500000000000000</double>
           </property>
@@ -51,6 +57,9 @@
         </item>
         <item row="2" column="0">
          <widget class="QDoubleSpinBox" name="forward">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
           <property name="singleStep">
            <double>0.500000000000000</double>
           </property>
@@ -78,6 +87,9 @@
         </item>
         <item row="2" column="3">
          <widget class="QDoubleSpinBox" name="pitch">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
           <property name="singleStep">
            <double>0.500000000000000</double>
           </property>
@@ -111,6 +123,9 @@
         </item>
         <item row="2" column="4">
          <widget class="QDoubleSpinBox" name="roll">
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
           <property name="singleStep">
            <double>0.500000000000000</double>
           </property>
@@ -127,7 +142,7 @@
       </item>
      </layout>
     </item>
-    <item row="3" column="0">
+    <item row="4" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLabel" name="label_6">
@@ -163,18 +178,18 @@
         </item>
        </widget>
       </item>
-     </layout>
-    </item>
-    <item row="1" column="0">
-     <layout class="QGridLayout" name="gridLayout_3">
-      <item row="1" column="2">
-       <widget class="QLabel" name="label_7">
-        <property name="text">
-         <string>Size</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
+      <item>
+       <widget class="QComboBox" name="mode">
+        <item>
+         <property name="text">
+          <string>RGBA</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>RGB</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>
@@ -193,6 +208,9 @@
       </item>
       <item>
        <widget class="QSpinBox" name="xspin">
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
         <property name="minimum">
          <number>1</number>
         </property>
@@ -213,6 +231,9 @@
       </item>
       <item>
        <widget class="QSpinBox" name="yspin">
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
         <property name="minimum">
          <number>1</number>
         </property>
@@ -230,8 +251,64 @@
       </item>
       <item>
        <widget class="QSpinBox" name="zpin">
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
         <property name="minimum">
          <number>1</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="1" column="2">
+       <widget class="QLabel" name="label_7">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Size</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_11">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Animate Time</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="animeBox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="value">
+         <number>5</number>
         </property>
        </widget>
       </item>
