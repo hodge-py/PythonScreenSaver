@@ -85,12 +85,43 @@ class PyGraphicsGen:
             mlab.show()
 
 
-    def array2dLandAnim(self):
+    def array2dLandAnim(self,data,background=(0,0,0),screenshot=True,mode='rgba',anti=True,showfig=True,imgSize=(1920,1080),colorMaps='gist_earth'):
         """
-        :param self:
+        :param data:
+        :param background:
+        :param screenshot:
+        :param mode:
+        :param anti:
+        :param showfig:
+        :param imgSize:
+        :param colorMaps:
         :return:
         """
-        pass
+        fig = mlab.figure(1, bgcolor=background, size=imgSize)
+        norm = data
+        imshow(norm, colormap=colorMaps)
+        mlab.move(self.forward, self.right, self.up)
+        mlab.pitch(self.pitch)
+        mlab.roll(self.roll)
+
+        if screenshot == True and mode == 'rgba':
+            screen = mlab.screenshot(figure=fig, mode=mode, antialiased=anti)
+            screen = Image.fromarray(np.uint8(screen * 255))
+            screen.save(f"test{random.randint(0, 10000)}.png")
+        elif screenshot == True and mode == 'rgb':
+            screen = mlab.screenshot(figure=fig, mode=mode, antialiased=anti)
+            screen = Image.fromarray(np.uint8(screen))
+            screen.save(f"test{random.randint(0, 10000)}.png")
+
+        @mlab.animate(delay=10)
+        def animate():
+            for i in range(100):
+                mlab.roll(i)
+                yield
+
+        animate()
+        if showfig:
+            mlab.show()
 
     def surf2dLArray(self):
         """
